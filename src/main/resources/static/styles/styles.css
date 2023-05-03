@@ -1,0 +1,32 @@
+.wrapper{
+    max-width: 1000px;
+    margin-inline: auto;
+}
+
+.card{
+    width: 18rem;
+    /* margin-inline: auto; */
+}
+
+.card.horizontal-card{
+    display: none;
+}
+
+.card .card-img-top{
+    width: 18rem;
+    height: 12rem;
+}
+
+@media screen and (max-width: 767px) {
+    .card{
+        margin-inline: auto;
+    }
+
+    .card.vertical-card{
+        display: none;
+    }
+
+    .card.horizontal-card{
+        display: block;
+    }
+}
