@@ -32,7 +32,7 @@ public class StockServiceImpl implements StockService {
 
     @Override
     public List<Stock> findStockByKeyString(String keyString) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'findStockByKeyString'");
+        return findAllStocks().stream().filter(stock -> stock.getName().toLowerCase().contains(keyString.toLowerCase()) || 
+                                                        stock.getDescription().toLowerCase().contains(keyString.toLowerCase())).toList();
     }
 }

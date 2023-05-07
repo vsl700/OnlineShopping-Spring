@@ -1,6 +1,7 @@
 .wrapper{
     max-width: 1000px;
     margin-inline: auto;
+    margin-top: 30px;
 }
 
 .card{
@@ -15,6 +16,47 @@
 .card .card-img-top{
     width: 18rem;
     height: 12rem;
+}
+
+.stock-view-img{
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.flex-horizontal{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-vertical{
+    display: flex;
+    flex-direction: column;
+}
+
+.stock-section-aside{
+    margin-top: 20px;
+}
+
+.stock-uploaded-on{
+    margin-block: auto;
+    margin-left: 20px;
+}
+
+.cart-purchase{
+    background-color: bisque;
+    height: fit-content;
+    margin-left: auto;
+    padding: 10px;
+    border-radius: 15px;
+}
+
+.cart-purchase-buttons{
+    margin-top: 10px;
+}
+
+#btn-cart{
+    margin-left: 20px;
 }
 
 @media screen and (max-width: 767px) {
