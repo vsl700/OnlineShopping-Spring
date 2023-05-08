@@ -11,7 +11,7 @@
 <body>
     <div th:insert="~{fragments/navbar :: navbar}"></div>
     <div class="wrapper">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg" class="stock-view-img" alt="Stock image">
+        <img th:src="@{{imageFileURL} (imageFileURL=${stock.imageLink})}" class="stock-view-img" alt="Stock image">
         <div class="stock-section-aside flex-horizontal">
             <section class="stock-section">
                 <div class="stock-name-date flex-horizontal">

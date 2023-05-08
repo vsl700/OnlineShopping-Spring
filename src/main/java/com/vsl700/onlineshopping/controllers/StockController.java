@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.vsl700.onlineshopping.data.models.Stock;
 import com.vsl700.onlineshopping.services.StockService;
@@ -42,6 +43,17 @@ public class StockController {
         return "view";
     }
 
+    @GetMapping("/create")
+    public String newStockView(){
+        return "createStock";
+    }
+
+    @PostMapping("/create")
+    public String newStockView(@RequestParam String name, @RequestParam String description, @RequestParam MultipartFile imageFile){
+        stockService.saveStock(name, description, imageFile);
+        return "redirect:/";
+    }
+
     @GetMapping("/api/stocks")
     @ResponseBody
     public List<Stock> getAllStocks(){
@@ -51,7 +63,7 @@ public class StockController {
     @PostMapping("/api/stock/new")
     @ResponseBody
     public void newStock(@RequestBody Stock stock){
-        stockService.saveStock(stock);
+        //stockService.saveStock(stock);
     }
 
 }
