@@ -1,5 +1,6 @@
 package com.vsl700.onlineshopping.controllers;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ import org.springframework.web.multipart.MultipartFile;
 import com.vsl700.onlineshopping.data.models.Stock;
 import com.vsl700.onlineshopping.services.StockService;
 
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+
 @Controller
 public class StockController {
     
@@ -23,7 +27,7 @@ public class StockController {
     private StockService stockService;
 
     @GetMapping("/")
-    public String home(Model model){
+    public String home(Model model, HttpServletRequest request){
         model.addAttribute("stockList", stockService.findAllStocks());
         return "index";
     }
@@ -54,6 +58,18 @@ public class StockController {
         return "redirect:/";
     }
 
+    @GetMapping("/addToCart")
+    public String addToCart(){
+        return "redirect:/";
+    }
+
+    @GetMapping("/purchase")
+    public String purchase(){
+        return "redirect:/";
+    }
+
+
+    // TODO Move the following methods to an API controller
     @GetMapping("/api/stocks")
     @ResponseBody
     public List<Stock> getAllStocks(){
@@ -64,6 +80,19 @@ public class StockController {
     @ResponseBody
     public void newStock(@RequestBody Stock stock){
         //stockService.saveStock(stock);
+    }
+
+    // TODO Move the following methods to a Unit test
+    @GetMapping("/api/tests/myCookies")
+    @ResponseBody
+    public String readServletCookie(HttpServletRequest request, String name){
+        if(request.getCookies() == null)
+            return null;
+
+        return Arrays.stream(request.getCookies())
+          .filter(cookie->name.equals(cookie.getName()))
+          .map(Cookie::getValue)
+          .findAny().get();
     }
 
 }
