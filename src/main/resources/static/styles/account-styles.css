@@ -1,0 +1,27 @@
+form{
+    padding: 30px;
+    border: 1px solid #ccc;
+    border-radius: 18px;
+    width: fit-content;
+}
+
+form input{
+    width: 250px;
+    margin-bottom: 20px;
+    border-radius: 7px;
+}
+
+form input[type="submit"]{
+    background: linear-gradient(90deg, rgba(255,91,146,1) 0%, rgba(99,61,213,1) 100%);
+    width: fit-content;
+    margin-bottom: 0;
+    margin-inline: auto;
+    padding-block: 7px;
+    padding-inline: 13px;
+    border: none;
+}
+
+.other-actions{
+    margin-inline: auto;
+    width: fit-content;
+}

@@ -1,5 +1,6 @@
 .wrapper{
     max-width: 1000px;
+    width: fit-content;
     margin-inline: auto;
     margin-top: 30px;
 }
