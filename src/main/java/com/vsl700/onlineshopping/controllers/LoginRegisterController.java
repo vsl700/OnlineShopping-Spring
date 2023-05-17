@@ -26,6 +26,13 @@ public class LoginRegisterController {
         return "redirect:/";
     }
 
+    @GetMapping("/logout")
+    public String logout(){
+        accountService.logout();
+
+        return "redirect:/login";
+    }
+
     @GetMapping("/register")
     public String registerView(){
         return "account/register";

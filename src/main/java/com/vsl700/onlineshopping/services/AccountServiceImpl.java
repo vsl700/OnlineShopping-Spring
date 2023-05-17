@@ -44,5 +44,10 @@ public class AccountServiceImpl implements AccountService {
         User user = new User(firstName, lastName, username, email, passwordEncoder.encode(password));
         userRepo.save(user);
     }
+
+    @Override
+    public void logout() {
+        SecurityContextHolder.getContext().setAuthentication(null);
+    }
     
 }
