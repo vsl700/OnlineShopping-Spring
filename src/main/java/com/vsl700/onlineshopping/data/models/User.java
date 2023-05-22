@@ -1,7 +1,10 @@
 package com.vsl700.onlineshopping.data.models;
 
+import java.util.List;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.DocumentReference;
 
 @Document
 public class User {
@@ -13,6 +16,8 @@ public class User {
     private String username;
     private String email;
     private String password;
+    @DocumentReference
+    private List<ShoppingCartRec> shoppingCart;
 
     public User() {}
 
@@ -62,6 +67,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public List<ShoppingCartRec> getShoppingCart() {
+        return shoppingCart;
     }
 
     @Override

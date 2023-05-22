@@ -29,7 +29,7 @@ public class SecurityConfig {
         http.csrf().disable()
             .authorizeHttpRequests((authorize) -> {
                 try {
-                    authorize.requestMatchers("/create").authenticated()
+                    authorize.requestMatchers("/create", "/purchase", "/purchase/{stockId}", "/addToCart", "/addToCart/{stockId}").authenticated()
                     .anyRequest().permitAll()
                     .and().formLogin().loginPage("/login")
                     .failureUrl("/login?error=1").loginProcessingUrl("/login")
