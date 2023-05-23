@@ -28,15 +28,15 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Dropdown
+                            Account
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Options</a></li>
+                            <li><a class="dropdown-item" href="/cart">Shopping cart</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" th:href="@{${loggedIn ? '/logout' : '/login'}}" th:text="${loggedIn ? 'Log out' : 'Log in'}"></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -48,5 +48,4 @@
         </div>
     </nav>
 </body>
-
 </html>
