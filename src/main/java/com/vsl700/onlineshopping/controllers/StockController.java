@@ -43,27 +43,6 @@ public class StockController {
         return "view";
     }
 
-    @PostMapping("/addToCart/{stockId}")
-    public String addToCart(@PathVariable String stockId, @RequestParam int amount){
-        stockService.addStockToCart(stockId, amount);
-
-        return "redirect:/";
-    }
-
-    @PostMapping("/purchase/{stockId}")
-    public String purchase(@PathVariable String stockId, @RequestParam int amount){
-        stockService.purchaseSingleItem(stockId, amount);
-
-        return "redirect:/";
-    }
-
-    @PostMapping("/purchase")
-    public String purchase(){
-        stockService.purchaseAllFromCart();
-
-        return "redirect:/";
-    }
-
     @GetMapping("/create")
     public String newStockView(){
         return "createStock";

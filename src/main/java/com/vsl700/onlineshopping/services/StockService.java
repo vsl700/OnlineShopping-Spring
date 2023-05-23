@@ -18,8 +18,6 @@ public interface StockService {
      * @return the stocks found with the key string
      */
     List<Stock> findStockByKeyString(String keyString);
-    void addStockToCart(String id, int amount);
-    void clearShoppingCart();
     void purchaseSingleItem(String id, int amount);
     void purchaseAllFromCart();
 }

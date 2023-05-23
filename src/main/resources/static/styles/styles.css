@@ -5,6 +5,10 @@
     margin-top: 30px;
 }
 
+.inactive-links a{
+    pointer-events: none;
+}
+
 .card{
     width: 18rem;
     /* margin-inline: auto; */
