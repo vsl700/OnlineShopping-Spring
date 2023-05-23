@@ -1,0 +1,11 @@
+h3{
+    margin-bottom: 1.5rem;
+}
+
+.cart-actions{
+    margin-left: auto;
+}
+
+.cart-actions .cart-action-btn{
+    margin-inline: 10px;
+}

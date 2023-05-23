@@ -20,14 +20,16 @@
                 </div>
                 <p th:text="${stock.description}"></p>
             </section>
-            <aside class="cart-purchase flex-vertical">
-                <h3>Actions</h3>
-                <label for="amount">Amount</label>
-                <input type="number" name="amount" min="1" value="1">
-                <div class="cart-purchase-buttons flex-horizontal">
-                    <button class="btn btn-primary" id="btn-purchase">Purchase</button>
-                    <button class="btn btn-secondary" id="btn-cart">Add to cart</button>
-                </div>
+            <aside>
+                <form class="cart-purchase flex-vertical" method="post">
+                    <h3>Actions</h3>
+                    <label for="amount">Amount</label>
+                    <input type="number" name="amount" id="amount" min="1" value="1">
+                    <div class="cart-purchase-buttons flex-horizontal">
+                        <input type="submit" class="btn btn-primary" id="btn-purchase" th:formaction="@{/purchase/{stockId} (stockId=${stock.id})}" value="Purchase">
+                        <input type="submit" class="btn btn-secondary" id="btn-cart" th:formaction="@{/cart/add/{stockId} (stockId=${stock.id})}" value="Add to cart">
+                    </div>
+                </form>
             </aside>
         </div>
     </div>

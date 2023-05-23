@@ -20,6 +20,9 @@ public class StockServiceImpl implements StockService {
     private StockRepository stockRepo;
 
     @Autowired
+    private ShoppingCartService shoppingCartService;
+
+    @Autowired
     private FileUploadService fileUploadService;
 
     @Override
@@ -49,4 +52,18 @@ public class StockServiceImpl implements StockService {
         return findAllStocks().stream().filter(stock -> stock.getName().toLowerCase().contains(keyString.toLowerCase()) || 
                                                         stock.getDescription().toLowerCase().contains(keyString.toLowerCase())).toList();
     }
+
+    @Override
+    public void purchaseAllFromCart() {
+        // <actual purchasing ...>
+
+        shoppingCartService.clearShoppingCart();
+    }
+
+    @Override
+    public void purchaseSingleItem(String id, int amount) {
+        shoppingCartService.addStockToCart(id, amount);
+        purchaseAllFromCart();
+    }
+    
 }
